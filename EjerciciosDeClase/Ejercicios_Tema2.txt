@@ -1,0 +1,200 @@
+TEMA 2. Ejercicios propuestos
+
+1.- Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos
+en cada subsistema).
+
+Component      Availability
+
+Web                 85%
+Application         90%
+Database            99.9%
+DNS                 98%
+Firewall            85%
+Switch              99%
+Data Center         99.99%
+ISP                 95% 
+
+WEB
+
+As1 = 97.75% + [ ( 1 - 97.75% ) * 97.75% ] = 99.9494%
+As2 = 99.9494% + [ ( 1 - 99.9494% ) * 97.75% ] = 99.99%
+
+APP
+
+As1 = 90% + [ ( 1 - 90% ) * 90% ] = 99%
+As2 = 99% + [ ( 1 - 99% ) * 90% ] = 99.90%
+
+DB
+
+As1 = 99.9% + [ ( 1 - 99.9% ) * 99.9% ] = 99.9999%
+As2 = 99.9999% + [ ( 1- 99.9999% ) * 99.9% ] = 99.999999%
+
+DNS
+
+As1 = 98% + [ ( 1 - 98% ) * 98% ] = 99.96%
+As2 = 99.96% + [ ( 1- 99.96% ) * 98% ] = 99.9992%  
+
+Firewall
+
+As1 = 85% + [ ( 1 - 85% ) * 85% ] = 97.75%
+As2 = 97.75% + [ ( 1- 97.75% ) * 85% ] = 97.9625% 
+
+Switch
+
+As1 = 99% + [ ( 1 - 99% ) * 99% ] = 99.99%
+As2 = 99.99% + [ ( 1- 99.99% ) * 99% ] = 99.9999%   
+
+DC
+
+As1 = 99.99% + [ ( 1 - 99.99% ) * 99.99% ] = 99.999999%
+As2 = 99.999999% + [ ( 1- 99.999999% ) * 99.99% ] = 99.9999999999%  ------> 100%
+
+ISP
+
+As1 = 95% + [ ( 1 - 95% ) * 95% ] = 99.75%
+As2 = 99.75% + [ ( 1- 99.75% ) * 95% ] = 99.9875%
+
+
+DISPONIBILIDAD TOTAL DEL SISTEMA = 99.99% * 99.90% * 99.999999% * 99.9992% * 97.9625% * 99.9999% * 100% * 99.9875% =
+
+= 97.84%
+
+
+X--------------------------------------------------------------------------------------------------------X
+
+
+3.- ¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el
+servidor? Buscar herramientas y aprender a usarlas.  
+
+Referencias : (Tutoriales de particulares)
+
+http://codehero.co/como-hacer-pruebas-de-carga-servidores-web/
+http://www.genbetadev.com/herramientas/apachebench-una-sencilla-herramienta-para-testear-servidores-web
+http://www.enlinux.org/uso-de-siege-en-gnulinux/?print=pdf
+
+Manuales de uso: (Linux GNU o Debian)
+
+APACHEBENCH   ----> http://httpd.apache.org/docs/2.2/programs/ab.html
+SIEGE         ----> http://linux.die.net/man/1/siege
+
+
+ApacheBench:
+
+Esta herramienta nos la suministra Apache y ofrece múltiples opciones (viene preinstalada en sistemas Mac,
+de hecho se recomienda usar la versión preinstalada para evitar problemas).
+Se trata de una de las herramientas más conocidas por la comunidad por ser software libre.
+Para instalarlo en sistemas Linux basados en el sistema operativo Debian usar el comando:
+
+	$ sudo apt-get install apache2-utils
+
+Ejemplo de prueba:
+
+	$ ab -n <NúmeroPeticionesEnviar> -c <NúmeroConexionesConcurrentes> <Dirección>  
+
+Si añadimos la opción -g podemos generar una gráfica GNUplot para ver los resultados.
+
+Aquí muestro una captura copiada de una web de internet donde añado la información de interés:
+
+Server Software:        Apache/2.2.22    ---> Información general
+Server Hostname:        localhost
+Server Port:            8888
+
+Complete requests:      10000    ----> Número de peticiones enviadas.
+Failed requests:        0        ----> Fallos de petición
+Write errors:           0        
+Total transferred:      6660000 bytes  
+HTML transferred:       430000 bytes
+Requests per second:    145.46 [#/sec] (mean)    ----> Peticiones por segundo.
+Time per request:       687.489 [ms] (mean)      
+Time per request:       6.875 [ms] (mean, across all concurrent requests)   ---> Tiempo por petición(promedio)
+Transfer rate:          94.60 [Kbytes/sec] received     ----> Velocidad de transferencia
+
+Todas las demás opciones vienen detalladas en el manual de la sección Manuales de uso.(ApacheBench)
+
+Siege:
+
+Esta herramienta es usada para realizar pruebas de carga. (La suministra JoeDog Software)
+Para instalarla en sistemas Linux usar el comando:
+
+	$ apt-get install siege
+
+Para realizar la prueba de carga por ejemplo:
+
+	$ siege -t <TiempoPrueba> -c <NúmeroConexionesConcurrentes>  <Dirección>
+
+Si añadimos la opción -b realiza la prueba en modo Benchmark (ningún retraso entre cada usuario simulado),
+si usamos la opción -q elimina la salida de cada petición que va mostrando.
+También podemos especificar con el atributo -f la ruta a un archivo donde puedes especificar múltiples direcciones 
+que deseas atacar en la misma prueba, además el atributo -d permite colocar un intervalo de retraso entre cada 
+usuario simulado, lo cual simularía un comportamiento más natural.
+Un ejemplo copiado también de la web donde recopilé la información es:
+
+Transactions:             7718 hits           ----> Peticiones totales
+Availability:             100.00 %            ----> Disponibilidad
+Elapsed time:             59.83 secs          ----> Tiempo desde el envío hasta la respuesta
+Data transferred:           0.32 MB           ----> Tamaño de la transferencia de datos
+Response time:              0.77 secs         ----> Tiempo de respuesta
+Transaction rate:           129.00 trans/sec  ----> Velocidad de transferencia
+Throughput:               0.01 MB/sec         ----> Volumen de trabajo que fluye por el sistema
+Concurrency:              98.97
+Successful transactions:        7718          ----> Peticiones exitosas
+Failed transactions:             0            ----> Peticiones erróneas
+Longest transaction:          2.74            ----> Petición más larga y más corta.
+Shortest transaction:         0.02
+ 
+
+Todas las demás opciones vienen detalladas en el manual de la sección Manuales de uso.(Siege)
+
+X--------------------------------------------------------------------------------------------------------X      
+
+
+
+4.- En este ejercicio debemos buscar diferentes tipos de productos: (1) Buscar
+ejemplos de balanceadores software y hardware (productos comerciales). (2) Buscar productos
+comerciales para servidores de aplicaciones. (3) Buscar productos comerciales para servidores
+de almacenamiento.
+
+(1)
+
+Balanceadores software:   información recopilada de ---> https://unpocodejava.wordpress.com/2013/07/03/que-es-un-balanceador-de-carga-que-es-haproxy/
+
+(Software libre)
+Haproxy
+Linux Virtual Servers (LVS)
+Nginx ("engine X")
+Pound
+Pen
+
+Balanceadores Hardware : información recopilada de ---> http://es.wikipedia.org/wiki/Balanceador_de_carga
+
+F5
+Citrix Netscaler
+
+(2)
+
+información recopilada de ---> http://es.wikipedia.org/wiki/Servidor_de_aplicaciones
+
+Productos para servidores de aplicaciones. 
+
+Software de pago :  WebLogic de Oracle (antes BEA Systems), WebSphere de IBM , EAServer de Sybase Inc entre otros.
+
+Software libre:  JOnAS del consorcio ObjectWeb, JBoss AS de JBoss (división de Red Hat), Geronimo de Apache, TomEE de Apache.
+
+Como contenedor web cabe destacar Tomcat.
+
+(3)
+
+Productos para servidores de almacenamiento.
+
+Servidores de base de datos:
+
+Visual Studio 2010. 
+SQL Server 2005. 
+
+Servidores cluster:
+
+Google
+Cluster X
+PS2 
+Red de supercomputación española (7 clústeres)
+                                                                                                                                                                                                                            

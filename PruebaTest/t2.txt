@@ -1,0 +1,17 @@
+¿Qué nos proporciona un mayor impacto en la escalabilidad de nuestro sistema?
+
+a) Optimización de nuestros recursos hardware.
+b) Optimización de nuestro código.
+c) Optimización del producto.
+d) Todas producen igual impacto en la escalabilidad.
+
+Respuesta correcta: B
+
+¿A qué va ligado el concepto de "balanceo de carga"?
+
+a) A la disponibilidad de nuestro sitio web.
+b) A la escalabilidad de nuestro sitio web.
+c) A la eficiencia de nuestro sitio web.
+d) Todas las anteriores son correctas.
+
+Respuesta correcta: B

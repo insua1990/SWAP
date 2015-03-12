@@ -1,0 +1,18 @@
+¿Qué principal ventaja encontramos al usar una granja web frente a un conjunto de máquinas (una por servicio 
+ofrecido) mal planificadas?
+
+a) El sistema es escalable.
+b) Obtenemos una mejora en costes económicos.
+c) Si falla una máquina, sólamente queda afectado un servicio.
+d) Todas son correctas.
+
+Respuesta correcta : A
+
+¿Es aconsejable montar siempre una granja web a la hora de servir contenido web?
+
+a) Sí, en cualquier caso.
+b) Sí , a no ser que el tráfico sea siempre muy bajo.
+c) Sí , a no ser que el tráfico sea siempre muy alto.
+d) Ninguna de las anteriores.
+
+Respuesta correcta : B
