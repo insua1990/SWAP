@@ -112,8 +112,8 @@ defaults
 	default_backend servers
 
 backend servers
-	server m1 172.16.168.130:80 maxconn 32
-	server m2 172.16.168.131:80 maxconn 32 
+	server m1 192.168.56.101:80 maxconn 32
+	server m2 192.168.56.102:80 maxconn 32 
 
 
 Una vez configurado, lanzamos el servicio con el comando:
