@@ -1,8 +1,8 @@
 
 ## **PRÁCTICA 4 SWAP**##
 
-Jose Manuel Martínez de la Insua
-Ángel Valera Motos
+ - Jose Manuel Martínez de la Insua
+ - Ángel Valera Motos
 
 Introducción:
 ----------------
