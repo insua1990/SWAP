@@ -22,11 +22,11 @@ Esto nos muestra el resultado de atender a 100 peticiones en bloques concurrente
 
  Realizando 10 pruebas a una máquina sola (sin balanceador) , 10 pruebas al balanceador **nginx** y otras 10 al balanceador **haproxy** obtenemos las siguientes medidas:
 
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/p4/ab.png?_subject_uid=276415100&w=AACBvzm5bHzlgcucM1OCOwEO-hQxYs_JnSTqMDmXj2UyKA)
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr4/imgpr4/ab.png)
 
 De éstos datos se obtuvo la media de cada uno de los parámetros a tener en cuenta y se almacenan visualmente en estos gráficos:
 
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/p4/abgraphs.png?_subject_uid=276415100&w=AAAQ1ak1ChU5Us5CcmtcyNyZYB2wZyyMhyM3PyY9GALcjg)
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr4/imgpr4/abgraphs.png)
 
 
 ## Rendimiento con Siege ##
@@ -39,11 +39,11 @@ Esto nos muestra el resultado de atender durante 60 segundos peticiones en bloqu
 
  Realizando 10 pruebas a una máquina sola (sin balanceador) , 10 pruebas al balanceador **nginx** y otras 10 al balanceador **haproxy** obtenemos las siguientes medidas:
 
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/p4/siege.png?_subject_uid=276415100&w=AABjWfPTp62X0nb7kzMuuLZPAujWAjMmGyVXkB5jACNQHQ)
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr4/imgpr4/siege.png)
 
 De éstos datos se obtuvo la media de cada uno de los parámetros a tener en cuenta y se almacenan visualmente en estos gráficos:
 
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/p4/siegegraphs.png?_subject_uid=276415100&w=AACa7Pruj2utrOn7isvaP6Jl5iT-SETmKhVTxyLDcKzFJA)
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr4/imgpr4/siegegraphs.png)
 
 Podemos ver la mejoría claramente al usar cualquiera de los balanceadores:
 
