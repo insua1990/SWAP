@@ -48,3 +48,4 @@ En el minuto 1 de cada hora ejecuta la línea de comandos:
 
 > rsync -avz -e ssh angel@192.168.1.100:/var/www/ /var/www/
 
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr2/crontab_p2.PNG)
