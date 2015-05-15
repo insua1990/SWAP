@@ -87,8 +87,8 @@ Volvemos al **maestro** y creamos un usuario y le damos permiso de acceso a la d
 > FLUSH TABLES;
 > FLUSH TABLES WITH READ LOCK;
 > SHOW MASTER STATUS;
-
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/P5/Captura3.PNG?_subject_uid=276415100&w=AAD7KVepVCDwftS9XRFFTY_LRXGOM-2oUsB-XVdY08eW9g)
+ 
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr5/imgpr5/Captura3.PNG)
 
 Volvemos a la máquina **esclavo** (máquina 2), entramos en **MySQL** y le damos los datos del maestro.
 
@@ -98,7 +98,7 @@ Por último arrancamos el **esclavo**:
 
 > START SLAVE;
 
-![enter image description here](https://dl-web.dropbox.com/get/SWAP/P5/Captura4.PNG?_subject_uid=276415100&w=AABZPa7K67cgP_chNXx9M-UBjnVxDrPyN0dV7559vVeZOA)
+![enter image description here](https://raw.githubusercontent.com/insua1990/SWAP/master/PRACTICAS/pr5/imgpr5/Captura4.PNG)
 
 Por último vamos a insertar una tupla en la máquina **maestro** y vemos si se ha duplicado el contenido en el **esclavo**:
 
