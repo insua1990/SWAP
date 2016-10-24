@@ -1,2 +1,2 @@
 # SWAP
-Repositorio correspondiente a la asignatura "Sistemas Web de Altas Prestaciones" .
+Repositorio correspondiente a la asignatura "Servidores Web de Altas Prestaciones" .
